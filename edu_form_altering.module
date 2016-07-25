@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Don't use to alter specific form. It's a BAD practice.
+ */
+//function edu_form_altering_form_alter(&$form, &$form_state, $form_id) {
+//  if ($form_id == 'edu_render_sys_example_form') {
+//
+//  }
+//}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function edu_form_altering_form_edu_render_sys_example_form_alter(&$form, &$form_state, $form_id) {
+  $form['userinfo']['edu_render_sys_firstname']['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function edu_form_altering_form_article_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['title']['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function edu_form_altering_form_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['strong_word'] = array(
+    '#type' => 'markup',
+    '#markup' => t('Here is a strong word'),
+    '#weight' => -100,
+  );
+}

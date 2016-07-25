@@ -1,0 +1,4 @@
+name = EDU Form Altering
+description = test module for form altering
+core = 7.x
+package = EDU
